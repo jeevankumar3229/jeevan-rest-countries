@@ -37,11 +37,11 @@ const Search = ({
   }
 
   return (
-    <div className="bg-white-500 flex flex-col font-custom sm:flex-row sm:justify-between mx-[40px]">
-      <div className="bg-white shadow-md mx-[40px] mt-[20px] h-[80px] sm:mt-[30px] sm:mx-0 sm:w-[30%] sm:ml-[0px] flex rounded-md justify-center items-center sm:overflow-hidden">
-        <FaSearch className="text-gray-900 text-xl pl-1"></FaSearch>
+    <div className="bg-white-500 flex flex-col font-custom sm:flex-row sm:justify-between mx-[40px] dark:bg-black dark:text-white">
+      <div className="bg-white shadow-md mx-[40px] mt-[20px] h-[80px] sm:mt-[30px] sm:mx-0 sm:w-[30%] sm:ml-[0px] flex rounded-md justify-center items-center sm:overflow-hidden  dark:bg-gray-500 dark:text-white">
+        <FaSearch className="text-gray-900 text-xl pl-1 dark:text-white"></FaSearch>
         <input
-          className="w-[79%] h-[100%] text-sm border-none outline-none pl-3"
+          className="w-[79%] h-[100%] text-sm border-none outline-none pl-3 dark:bg-gray-500 dark:text-white"
           type="text"
           name="search"
           id=""
@@ -50,27 +50,25 @@ const Search = ({
           onChange={selectCountry}
         />
       </div>
-      <div className=" mx-[40px] mt-[50px] h-[80px] sm:mx-0 sm:mt-[30px] sm:w-[26%] sm:mr-[0px]">
+      <div className=" mx-[40px] mt-[50px] h-[80px] sm:mx-0 sm:mt-[30px] sm:w-[26%] sm:mr-[0px]  dark:bg-black dark:text-white">
         <select
           name=""
           id="region"
-          className="bg-white shadow-md border-none outline-none w-[60%] h-[100%] text-sm text-center rounded-md sm:w-[100%]"
+          className="bg-white shadow-md border-none outline-none w-[60%] h-[100%] text-sm text-center rounded-md sm:w-[100%] dark:bg-gray-500 dark:text-white"
           onChange={sortBy}
         >
           <option value="Sort By">Sort By</option>
-          <option value="area-up">
-            <div>Area (Low to High)</div>
-          </option>
+          <option value="area-up">Area (Low to High)</option>
           <option value="area-down">Area (High to Low)</option>
           <option value="population-up">Population (Low to High)</option>
           <option value="population-down">Population (High to Low)</option>
         </select>
       </div>
-      <div className=" mx-[40px] mt-[50px] h-[80px] sm:mx-0 sm:mt-[30px] sm:w-[21%] sm:mr-[0px]">
+      <div className=" mx-[40px] mt-[50px] h-[80px] sm:mx-0 sm:mt-[30px] sm:w-[21%] sm:mr-[0px] dark:bg-black dark:text-white">
         <select
           name=""
           id="region"
-          className="bg-white shadow-md border-none outline-none w-[60%] h-[100%] text-sm text-center rounded-md sm:w-[100%]"
+          className="bg-white shadow-md border-none outline-none w-[60%] h-[100%] text-sm text-center rounded-md sm:w-[100%] dark:bg-gray-500 dark:text-white"
           onChange={selectSubRegion}
         >
           <option value="Filter by SubRegion">Filter by SubRegion</option>
@@ -81,11 +79,11 @@ const Search = ({
           ))}
         </select>
       </div>
-      <div className=" mx-[40px] mt-[50px] h-[80px] sm:mx-0 sm:mt-[30px] sm:w-[21%] sm:mr-[0px]">
+      <div className=" mx-[40px] mt-[50px] h-[80px] sm:mx-0 sm:mt-[30px] sm:w-[21%] sm:mr-[0px] dark:bg-black dark:text-white">
         <select
           name=""
           id="region"
-          className="bg-white shadow-md border-none outline-none w-[60%] h-[100%] text-sm text-center rounded-md sm:w-[100%]"
+          className="bg-white shadow-md border-none outline-none w-[60%] h-[100%] text-sm text-center rounded-md sm:w-[100%] dark:bg-gray-500 dark:text-white"
           onChange={selectRegion}
         >
           <option value="Filter by Region">Filter by Region</option>

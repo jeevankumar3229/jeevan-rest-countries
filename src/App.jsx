@@ -11,6 +11,7 @@ function App() {
   let [subRegionData, setSubRegionData] = useState([]);
   let [selectSubRegionData, setSelectSubRegionData] = useState([]);
   let [sortState, setSortState] = useState("");
+  let [darkMode, setDarkMode] = useState(true);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -25,8 +26,7 @@ function App() {
     fetchData();
   }, []);
   return (
-    <>
-      {console.log()}
+    <div className={darkMode && "dark"}>
       <HomePage
         data={countriesData}
         countryData={countryData}
@@ -41,8 +41,10 @@ function App() {
         setSelectSubRegionData={setSelectSubRegionData}
         sortState={sortState}
         setSortState={setSortState}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
-    </>
+    </div>
   );
 }
 

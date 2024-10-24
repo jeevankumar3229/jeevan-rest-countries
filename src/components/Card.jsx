@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({ imageURL, cName, population, region, capital }) => {
   return (
-    <div className="bg-white shadow-md w-[70%] h-[400px] my-2 flex flex-col rounded-xl overflow-hidden pb-[20px] mb-[30px] font-custom sm:w-[47%] md:w-[31%] lg:w-[23%]">
+    <div className="bg-white shadow-md w-[70%] h-[400px] my-2 flex flex-col rounded-xl overflow-hidden pb-[20px] mb-[30px] font-custom sm:w-[47%] md:w-[31%] lg:w-[23%] dark:bg-gray-500 dark:text-white dark:shadow-md">
       <div className="h-[50%]">
         <img src={imageURL} alt="" className="w-[100%] h-[100%]" />
       </div>

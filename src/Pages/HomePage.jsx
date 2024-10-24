@@ -18,10 +18,12 @@ const HomePage = ({
   setSelectSubRegionData,
   sortState,
   setSortState,
+  darkMode,
+  setDarkMode,
 }) => {
   return (
-    <>
-      <Header />
+    <div className="dark:bg-black dark:text-white h-[100vh]">
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <Search
         setSearchFieldData={setSearchFieldData}
         setSearchCountryData={setSearchCountryData}
@@ -36,6 +38,8 @@ const HomePage = ({
         setSelectSubRegionData={setSelectSubRegionData}
         sortState={sortState}
         setSortState={setSortState}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
       <CardSet
         searchFieldData={searchFieldData}
@@ -50,8 +54,10 @@ const HomePage = ({
         setSelectSubRegionData={setSelectSubRegionData}
         sortState={sortState}
         setSortState={setSortState}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
-    </>
+    </div>
   );
 };
 
