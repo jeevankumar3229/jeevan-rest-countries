@@ -1,5 +1,5 @@
 import React from "react";
-import { FaMoon } from "react-icons/fa";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
         Where in the world?
       </p>
       <button className="flex justify-center items-center text-xl mr-[40px]">
-        <FaMoon className="text-black mr-2"></FaMoon>
+        <MdOutlineDarkMode className="text-black mr-2"></MdOutlineDarkMode>
         <p>Dark Mode</p>
       </button>
     </div>
