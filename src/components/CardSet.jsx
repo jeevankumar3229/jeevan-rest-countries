@@ -114,7 +114,7 @@ const CardSet = ({
   }, [sortState, countryData]);
 
   return (
-    <div className="bg-white-500 flex flex-col items-center my-[50px] font-custom sm:flex-row sm:flex-wrap sm:justify-between sm:mx-[40px]">
+    <div className="bg-white-500 flex flex-col items-center my-[50px] font-custom sm:flex-row sm:flex-wrap sm:justify-between sm:mx-[40px] dark:bg-black">
       {console.log(subRegionData)}
       {countryData.map((item, index) => (
         <Card

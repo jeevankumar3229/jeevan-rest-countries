@@ -1,8 +1,7 @@
-import Header from "./components/Header";
-import Search from "./components/Search";
-import CardSet from "./components/CardSet";
 import HomePage from "./Pages/HomePage";
 import { useEffect, useState } from "react";
+import SingleCountry from "./Pages/SingleCountry";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   let [countriesData, setCountriesData] = useState([]);
   let [countryData, setCountryData] = useState([]);
@@ -11,7 +10,7 @@ function App() {
   let [subRegionData, setSubRegionData] = useState([]);
   let [selectSubRegionData, setSelectSubRegionData] = useState([]);
   let [sortState, setSortState] = useState("");
-  let [darkMode, setDarkMode] = useState(true);
+  let [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -26,25 +25,46 @@ function App() {
     fetchData();
   }, []);
   return (
-    <div className={darkMode && "dark"}>
-      <HomePage
-        data={countriesData}
-        countryData={countryData}
-        setCountryData={setCountryData}
-        searchFieldData={searchFieldData}
-        setSearchFieldData={setSearchFieldData}
-        searchCountryData={searchCountryData}
-        setSearchCountryData={setSearchCountryData}
-        subRegionData={subRegionData}
-        setSubRegionData={setSubRegionData}
-        selectSubRegionData={selectSubRegionData}
-        setSelectSubRegionData={setSelectSubRegionData}
-        sortState={sortState}
-        setSortState={setSortState}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-      />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className={darkMode && "dark"}>
+              <HomePage
+                data={countriesData}
+                countryData={countryData}
+                setCountryData={setCountryData}
+                searchFieldData={searchFieldData}
+                setSearchFieldData={setSearchFieldData}
+                searchCountryData={searchCountryData}
+                setSearchCountryData={setSearchCountryData}
+                subRegionData={subRegionData}
+                setSubRegionData={setSubRegionData}
+                selectSubRegionData={selectSubRegionData}
+                setSelectSubRegionData={setSelectSubRegionData}
+                sortState={sortState}
+                setSortState={setSortState}
+                darkMode={darkMode}
+                setDarkMode={setDarkMode}
+              />
+            </div>
+          }
+        />
+        <Route
+          path="/country/:id"
+          element={
+            <div /*className={darkMode && "dark"}*/>
+              <SingleCountry
+                // darkMode={darkMode}
+                // setDarkMode={setDarkMode}
+                data={countriesData}
+              />
+            </div>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
