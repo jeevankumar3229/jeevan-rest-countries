@@ -114,7 +114,7 @@ const CardSet = ({
   }, [sortState, countryData]);
 
   return (
-    <div className=" grid gap-4 items-center my-[50px] font-custom sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 sm:mx-[80px] dark:bg-dm">
+    <div className=" grid gap-4 place-items-center my-[50px] font-custom sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 sm:mx-[80px] dark:bg-dm">
       {countryData.map((item, index) => (
         <Card
           key={index}
