@@ -2,6 +2,9 @@ import HomePage from "./Pages/HomePage";
 import { useEffect, useState } from "react";
 import SingleCountry from "./Pages/SingleCountry";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import MainLayout from "./Layout/MainLayout";
+import NotFoundPage from "./Pages/NotFoundPage";
 function App() {
   let [countriesData, setCountriesData] = useState([]);
   let [countryData, setCountryData] = useState([]);
@@ -11,6 +14,7 @@ function App() {
   let [selectSubRegionData, setSelectSubRegionData] = useState([]);
   let [sortState, setSortState] = useState("");
   let [darkMode, setDarkMode] = useState(false);
+  let [data2, setData2] = useState([]);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -18,12 +22,14 @@ function App() {
         let jsonFormat = await data.json();
         setCountriesData(jsonFormat);
         setCountryData(jsonFormat);
+        setData2(jsonFormat);
       } catch (Error) {
         console.log(Error);
       }
     }
     fetchData();
   }, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -31,38 +37,56 @@ function App() {
           path="/"
           element={
             <div className={darkMode && "dark"}>
-              <HomePage
-                data={countriesData}
-                countryData={countryData}
-                setCountryData={setCountryData}
-                searchFieldData={searchFieldData}
-                setSearchFieldData={setSearchFieldData}
-                searchCountryData={searchCountryData}
-                setSearchCountryData={setSearchCountryData}
-                subRegionData={subRegionData}
-                setSubRegionData={setSubRegionData}
-                selectSubRegionData={selectSubRegionData}
-                setSelectSubRegionData={setSelectSubRegionData}
-                sortState={sortState}
-                setSortState={setSortState}
-                darkMode={darkMode}
-                setDarkMode={setDarkMode}
-              />
+              <MainLayout darkMode={darkMode} setDarkMode={setDarkMode} />
             </div>
           }
-        />
-        <Route
-          path="/country/:id"
-          element={
-            <div /*className={darkMode && "dark"}*/>
-              <SingleCountry
-                // darkMode={darkMode}
-                // setDarkMode={setDarkMode}
-                data={countriesData}
-              />
-            </div>
-          }
-        />
+        >
+          <Route
+            path="/"
+            element={
+              <div className={darkMode && "dark"}>
+                <HomePage
+                  data={countriesData}
+                  countryData={countryData}
+                  setCountryData={setCountryData}
+                  searchFieldData={searchFieldData}
+                  setSearchFieldData={setSearchFieldData}
+                  searchCountryData={searchCountryData}
+                  setSearchCountryData={setSearchCountryData}
+                  subRegionData={subRegionData}
+                  setSubRegionData={setSubRegionData}
+                  selectSubRegionData={selectSubRegionData}
+                  setSelectSubRegionData={setSelectSubRegionData}
+                  sortState={sortState}
+                  setSortState={setSortState}
+                  darkMode={darkMode}
+                  setDarkMode={setDarkMode}
+                />
+              </div>
+            }
+          />
+          <Route
+            path="/country/:id"
+            element={
+              <div className={darkMode && "dark"}>
+                <SingleCountry
+                  darkMode={darkMode}
+                  setDarkMode={setDarkMode}
+                  data={countriesData}
+                  data2={data2}
+                />
+              </div>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <div className={darkMode && "dark"}>
+                <NotFoundPage darkMode={darkMode} setDarkMode={setDarkMode} />
+              </div>
+            }
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

@@ -33,6 +33,7 @@ const CardSet = ({
           regionData = Array.from(regionDataSet);
         }
         console.log(regionData);
+        setSearchCountryData("");
         setSubRegionData(regionData);
         setCountryData(updatedData);
         setRegionData(updatedData);
@@ -89,9 +90,8 @@ const CardSet = ({
   useEffect(() => {
     async function fetchData() {
       try {
-        console.log(sortState);
         let updatedData = countryData;
-        console.log(updatedData);
+
         if (sortState === "area-up") {
           updatedData = updatedData.toSorted((a, b) => a.area - b.area);
         } else if (sortState === "area-down") {
@@ -114,8 +114,7 @@ const CardSet = ({
   }, [sortState, countryData]);
 
   return (
-    <div className="bg-white-500 flex flex-col items-center my-[50px] font-custom sm:flex-row sm:flex-wrap sm:justify-between sm:mx-[40px] dark:bg-black">
-      {console.log(subRegionData)}
+    <div className=" grid gap-4 items-center my-[50px] font-custom sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 sm:mx-[80px] dark:bg-dm">
       {countryData.map((item, index) => (
         <Card
           key={index}

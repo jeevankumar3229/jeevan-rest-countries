@@ -22,8 +22,11 @@ const HomePage = ({
   setDarkMode,
 }) => {
   return (
-    <div className="dark:bg-black dark:text-white h-[100vh]">
-      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+    <div
+      className="dark:bg-dm-bg dark:text-white bg-lm-bg text-lm-text dark:text-lm-elements-dm-text"
+      style={{ minHeight: "100vh" }}
+    >
+      {/* <Header darkMode={darkMode} setDarkMode={setDarkMode} /> */}
       <Search
         setSearchFieldData={setSearchFieldData}
         setSearchCountryData={setSearchCountryData}
