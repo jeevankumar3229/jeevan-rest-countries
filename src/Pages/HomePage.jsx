@@ -8,18 +8,16 @@ const HomePage = ({
   data,
   countryData,
   setCountryData,
-  searchFieldData,
-  setSearchFieldData,
+  selectRegionData,
+  setSelectRegionData,
   searchCountryData,
   setSearchCountryData,
   subRegionData,
   setSubRegionData,
   selectSubRegionData,
   setSelectSubRegionData,
-  sortState,
-  setSortState,
-  darkMode,
-  setDarkMode,
+  sortCountry,
+  setSortCountry,
 }) => {
   return (
     <div
@@ -28,37 +26,24 @@ const HomePage = ({
     >
       {/* <Header darkMode={darkMode} setDarkMode={setDarkMode} /> */}
       <Search
-        setSearchFieldData={setSearchFieldData}
+        setSelectRegionData={setSelectRegionData}
         setSearchCountryData={setSearchCountryData}
         searchCountryData={searchCountryData}
-        data={data}
-        countryData={countryData}
-        setCountryData={setCountryData}
-        searchFieldData={searchFieldData}
+        selectRegionData={selectRegionData}
         subRegionData={subRegionData}
-        setSubRegionData={setSubRegionData}
-        selectSubRegionData={selectSubRegionData}
         setSelectSubRegionData={setSelectSubRegionData}
-        sortState={sortState}
-        setSortState={setSortState}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
+        setSortCountry={setSortCountry}
       />
       <CardSet
-        searchFieldData={searchFieldData}
+        selectRegionData={selectRegionData}
         searchCountryData={searchCountryData}
         setSearchCountryData={setSearchCountryData}
         data={data}
         countryData={countryData}
         setCountryData={setCountryData}
-        subRegionData={subRegionData}
         setSubRegionData={setSubRegionData}
         selectSubRegionData={selectSubRegionData}
-        setSelectSubRegionData={setSelectSubRegionData}
-        sortState={sortState}
-        setSortState={setSortState}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
+        sortCountry={sortCountry}
       />
     </div>
   );

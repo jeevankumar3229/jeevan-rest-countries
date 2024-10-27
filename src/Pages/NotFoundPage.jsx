@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaExclamationTriangle } from "react-icons/fa";
-const NotFoundPage = ({ darkMode, setDarkMode }) => {
+const NotFoundPage = () => {
   return (
     <>
       <section

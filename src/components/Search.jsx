@@ -1,25 +1,17 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-import { FaSortAlphaDown } from "react-icons/fa";
 
 const Search = ({
-  setSearchFieldData,
+  setSelectRegionData,
   setSearchCountryData,
   searchCountryData,
-  data,
-  countryData,
-  setCountryData,
-  searchFieldData,
   subRegionData,
-  setSubRegionData,
-  selectSubRegionData,
   setSelectSubRegionData,
-  sortState,
-  setSortState,
+  setSortCountry,
 }) => {
   function selectRegion(e) {
     let value = e.target.value;
-    setSearchFieldData(value);
+    setSelectRegionData(value);
   }
   function selectCountry(e) {
     let value = e.target.value;
@@ -33,7 +25,7 @@ const Search = ({
 
   function sortBy(e) {
     let value = e.target.value;
-    setSortState(value);
+    setSortCountry(value);
   }
 
   return (

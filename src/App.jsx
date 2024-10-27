@@ -2,32 +2,21 @@ import HomePage from "./Pages/HomePage";
 import { useEffect, useState } from "react";
 import SingleCountry from "./Pages/SingleCountry";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
 import MainLayout from "./Layout/MainLayout";
 import NotFoundPage from "./Pages/NotFoundPage";
+import { fetchData } from "./components/util/UtilityFunctions";
 function App() {
   let [countriesData, setCountriesData] = useState([]);
   let [countryData, setCountryData] = useState([]);
-  let [searchFieldData, setSearchFieldData] = useState("");
+  let [selectRegionData, setSelectRegionData] = useState("");
   let [searchCountryData, setSearchCountryData] = useState("");
   let [subRegionData, setSubRegionData] = useState([]);
   let [selectSubRegionData, setSelectSubRegionData] = useState([]);
-  let [sortState, setSortState] = useState("");
+  let [sortCountry, setSortCountry] = useState("");
   let [darkMode, setDarkMode] = useState(false);
-  let [data2, setData2] = useState([]);
+
   useEffect(() => {
-    async function fetchData() {
-      try {
-        let data = await fetch("https://restcountries.com/v3.1/all");
-        let jsonFormat = await data.json();
-        setCountriesData(jsonFormat);
-        setCountryData(jsonFormat);
-        setData2(jsonFormat);
-      } catch (Error) {
-        console.log(Error);
-      }
-    }
-    fetchData();
+    fetchData(setCountriesData, setCountryData);
   }, []);
 
   return (
@@ -49,18 +38,16 @@ function App() {
                   data={countriesData}
                   countryData={countryData}
                   setCountryData={setCountryData}
-                  searchFieldData={searchFieldData}
-                  setSearchFieldData={setSearchFieldData}
+                  selectRegionData={selectRegionData}
+                  setSelectRegionData={setSelectRegionData}
                   searchCountryData={searchCountryData}
                   setSearchCountryData={setSearchCountryData}
                   subRegionData={subRegionData}
                   setSubRegionData={setSubRegionData}
                   selectSubRegionData={selectSubRegionData}
                   setSelectSubRegionData={setSelectSubRegionData}
-                  sortState={sortState}
-                  setSortState={setSortState}
-                  darkMode={darkMode}
-                  setDarkMode={setDarkMode}
+                  sortCountry={sortCountry}
+                  setSortCountry={setSortCountry}
                 />
               </div>
             }
@@ -69,12 +56,7 @@ function App() {
             path="/country/:id"
             element={
               <div className={darkMode && "dark"}>
-                <SingleCountry
-                  darkMode={darkMode}
-                  setDarkMode={setDarkMode}
-                  data={countriesData}
-                  data2={data2}
-                />
+                <SingleCountry data={countriesData} />
               </div>
             }
           />
@@ -82,7 +64,7 @@ function App() {
             path="*"
             element={
               <div className={darkMode && "dark"}>
-                <NotFoundPage darkMode={darkMode} setDarkMode={setDarkMode} />
+                <NotFoundPage />
               </div>
             }
           />
