@@ -29,7 +29,7 @@ const Search = ({
   }
 
   return (
-    <div className="bg-lm-bg flex flex-col font-custom sm:flex-row sm:justify-between sm:mx-[80px] dark:bg-dm-bg dark:text-white">
+    <div className="bg-lm-bg flex flex-col font-custom sm:flex-row sm:justify-between sm:mx-[80px] dark:bg-dm-bg dark:text-white ">
       <div className="bg-lm-elements-dm-text shadow-md mx-[40px] mt-[20px] h-[80px] sm:mt-[30px] sm:mx-0 sm:w-[30%] sm:ml-[0px] flex rounded-md justify-center items-center sm:overflow-hidden  dark:bg-dm-elements dark:text-white">
         <FaSearch className="text-gray-900 text-xl pl-1 dark:text-white"></FaSearch>
         <input
@@ -47,7 +47,7 @@ const Search = ({
           <select
             name=""
             id="region"
-            className="bg-lm-elements-dm-text text-lm-text shadow-md border-none outline-none w-[100%] h-[100%] text-sm text-center rounded-md sm:w-[100%] dark:bg-dm-elements dark:text-white"
+            className="bg-lm-elements-dm-text text-lm-text shadow-md border-none outline-none w-[100%] h-[100%] text-sm  text-center rounded-md sm:w-[100%] dark:bg-dm-elements dark:text-white"
             onChange={sortBy}
           >
             <option value="Sort By">Sort By</option>

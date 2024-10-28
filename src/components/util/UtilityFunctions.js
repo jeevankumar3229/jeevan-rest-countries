@@ -32,7 +32,6 @@ async function fetchRegionData(
       });
       regionData = Array.from(regionDataSet);
     }
-    console.log(regionData);
     setSearchCountryData("");
     setSubRegionData(regionData);
     setCountryData(updatedData);
@@ -115,7 +114,6 @@ async function fetchSingleCountryData(
 ) {
   try {
     const updatedData = data.filter((item) => item.name.common === id);
-    console.log(updatedData);
     setSingleCountryData(updatedData[0]);
   } catch (error) {
     console.log(error);

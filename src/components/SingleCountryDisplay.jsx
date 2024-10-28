@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Spinner from "./Spinner";
 import NotFoundPage from "../Pages/NotFoundPage";
 import BackButton from "./BackButton";
 import { fetchSingleCountryData } from "./util/UtilityFunctions";
 
+
 const SingleCountryDisplay = ({ data }) => {
+  const navigate=useNavigate();
   const [singleCountryData, setSingleCountryData] = useState(null);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   let updatedData = {};
-
+  function clickBorderCountry(e){
+    navigate(`/country/${e.target.value}`)
+  }
   useEffect(() => {
     fetchSingleCountryData(data, id, setSingleCountryData, setLoading);
-  }, [data]);
+  }, [data, id]);
 
   if (!singleCountryData) {
     return <NotFoundPage />;
@@ -136,7 +140,7 @@ const SingleCountryDisplay = ({ data }) => {
                       (item) => item.cca3 === border
                     );
                     return (
-                      <button
+                      <button value={filteredItem.name.common} onClick={clickBorderCountry}
                         key={index}
                         className="w-auto px-1 drop-shadow-md bg-lm-elements-dm-text py-[12px] rounded-md m-1 dark:bg-dm-elements bg-lm-elements-dm-text"
                       >
@@ -145,7 +149,7 @@ const SingleCountryDisplay = ({ data }) => {
                     );
                   })
                 ) : (
-                  <p>No Border Countries</p>
+                  <p className="text-2xl font-light sm:text-base">No Border Countries</p>
                 )}
               </div>
             </div>
