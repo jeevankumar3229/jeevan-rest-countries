@@ -25,7 +25,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div className={darkMode && "dark"}>
+            <div className={darkMode ? "dark" : ""}>
               <MainLayout darkMode={darkMode} setDarkMode={setDarkMode} />
             </div>
           }
@@ -33,7 +33,7 @@ function App() {
           <Route
             path="/"
             element={
-              <div className={darkMode && "dark"}>
+              <div className={darkMode ? "dark" : ""}>
                 <HomePage
                   data={countriesData}
                   countryData={countryData}
@@ -55,7 +55,7 @@ function App() {
           <Route
             path="/country/:id"
             element={
-              <div className={darkMode && "dark"}>
+              <div className={darkMode ? "dark" : ""}>
                 <SingleCountry data={countriesData} />
               </div>
             }
@@ -63,7 +63,7 @@ function App() {
           <Route
             path="*"
             element={
-              <div className={darkMode && "dark"}>
+              <div className={darkMode ? "dark" : ""}>
                 <NotFoundPage />
               </div>
             }

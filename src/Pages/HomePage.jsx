@@ -24,7 +24,7 @@ const HomePage = ({
       className="dark:bg-dm-bg dark:text-white bg-lm-bg text-lm-text dark:text-lm-elements-dm-text"
       style={{ minHeight: "100vh" }}
     >
-      {/* <Header darkMode={darkMode} setDarkMode={setDarkMode} /> */}
+    
       <Search
         setSelectRegionData={setSelectRegionData}
         setSearchCountryData={setSearchCountryData}
