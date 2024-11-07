@@ -41,7 +41,7 @@ const CardSet = ({
 
   useEffect(() => {
     sortData(countryData, sortCountry, setCountryData);
-  }, [sortCountry, countryData]);
+  }, [sortCountry]);
 
   return (
     <div className=" grid gap-4 place-items-center my-[50px] font-custom sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 sm:mx-[80px] dark:bg-dm">
