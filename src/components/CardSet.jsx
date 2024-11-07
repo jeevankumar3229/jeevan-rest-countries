@@ -30,7 +30,7 @@ const CardSet = ({
       setRegionData
     );
   }, [selectRegionData]);
-
+  
   useEffect(() => {
     fetchCountryData(data, searchCountryData, setCountryData);
   }, [searchCountryData]);

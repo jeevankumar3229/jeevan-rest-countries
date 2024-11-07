@@ -1,7 +1,8 @@
 //fetch countries data from API
+import config from "../../config.js"
 async function fetchData(setCountriesData, setCountryData) {
   try {
-    let data = await fetch("https://restcountries.com/v3.1/all");
+    let data = await fetch(config.apiUrl);
     let jsonFormat = await data.json();
     setCountriesData(jsonFormat);
     setCountryData(jsonFormat);
